@@ -19,7 +19,6 @@ export ZSH_THEME="jreese"
 os_plugins=()
 if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
   os_plugins=(osx macports mbp-keyboard)
-  echo "on osx"
 fi
   
 all_platform_plugins=(git ruby rails jump)
