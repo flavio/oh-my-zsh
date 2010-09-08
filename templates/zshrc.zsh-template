@@ -27,3 +27,7 @@ plugins=($all_platform_plugins $os_plugins)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+alias ssh_anon="ssh -o \"UserKnownHostsFile /dev/null\""
+alias scp_anon="scp -o \"UserKnownHostsFile /dev/null\""
+
+alias iosc="osc -A https://api.suse.de"
