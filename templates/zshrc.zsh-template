@@ -36,3 +36,6 @@ alias iosc="osc -A https://api.suse.de"
 
 # needed to have flash audio working with SLED11
 export FLASH_FORCE_ALSA=1
+
+# rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
