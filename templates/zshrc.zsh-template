@@ -29,13 +29,16 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export EDITOR=vim
 export LANGUAGE=en_US
+
+# ssh without memory
 alias ssh_anon="ssh -o \"UserKnownHostsFile /dev/null\""
 alias scp_anon="scp -o \"UserKnownHostsFile /dev/null\""
+alias sftp_anon="sftp -o \"UserKnownHostsFile /dev/null\""
 
 alias iosc="osc -A https://api.suse.de"
 
 # needed to have flash audio working with SLED11
 export FLASH_FORCE_ALSA=1
 
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+# This loads RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
