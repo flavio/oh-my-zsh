@@ -29,8 +29,11 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export EDITOR=vim
 export LANGUAGE=en_US
+
+# ssh without memory
 alias ssh_anon="ssh -o \"UserKnownHostsFile /dev/null\""
 alias scp_anon="scp -o \"UserKnownHostsFile /dev/null\""
+alias sftp_anon="sftp -o \"UserKnownHostsFile /dev/null\""
 
 alias iosc="osc -A https://api.suse.de"
 
