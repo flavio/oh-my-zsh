@@ -21,7 +21,7 @@ if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
   os_plugins=(osx macports mbp-keyboard)
 fi
   
-all_platform_plugins=(git ruby rails jump)
+all_platform_plugins=(git ruby rails jump ssh-agent)
 plugins=($all_platform_plugins $os_plugins)
 
 source $ZSH/oh-my-zsh.sh
@@ -42,3 +42,8 @@ export FLASH_FORCE_ALSA=1
 
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+# start tmux forcing 256 color mode (the setting inside of .tmux.conf is ignored)
+alias tmux="tmux -2"
+
