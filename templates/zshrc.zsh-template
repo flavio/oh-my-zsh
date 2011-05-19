@@ -36,6 +36,7 @@ alias scp_anon="scp -o \"UserKnownHostsFile /dev/null\""
 alias sftp_anon="sftp -o \"UserKnownHostsFile /dev/null\""
 
 alias iosc="osc -A https://api.suse.de"
+alias mosc="osc -A https://api.pub.meego.com"
 
 # needed to have flash audio working with SLED11
 export FLASH_FORCE_ALSA=1
@@ -43,7 +44,8 @@ export FLASH_FORCE_ALSA=1
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-
 # start tmux forcing 256 color mode (the setting inside of .tmux.conf is ignored)
 alias tmux="tmux -2"
 
+# set oracle home
+export TNS_ADMIN=/etc
