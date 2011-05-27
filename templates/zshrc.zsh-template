@@ -18,7 +18,8 @@ export ZSH_THEME="jreese"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 os_plugins=()
 if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
-  os_plugins=(osx macports mbp-keyboard)
+  export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+  os_plugins=(osx brew macports mbp-keyboard)
 fi
   
 all_platform_plugins=(git ruby rails jump ssh-agent)
