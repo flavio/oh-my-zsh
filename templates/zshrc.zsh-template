@@ -28,10 +28,13 @@ os_plugins=()
 if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH
   os_plugins=(osx brew macports mbp-keyboard)
-else
-  export TERM=xterm-256color
-fi
   
+  # solarized ls colors on osx
+  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+else
+  # Load solarized dircolors
+  eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
+fi
 all_platform_plugins=(git ruby rails jump ssh-agent)
 plugins=($all_platform_plugins $os_plugins)
 
@@ -40,6 +43,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export EDITOR=vim
 export LANGUAGE=en_US
+export TERM=xterm-256color
 
 # ssh without memory
 alias ssh_anon="ssh -o \"UserKnownHostsFile /dev/null\""
@@ -64,5 +68,4 @@ export TNS_ADMIN=/etc
 # This loads openstack env variables.
 [[ -s "$HOME/.openstack/novarc" ]] && source "$HOME/.openstack/novarc"
 
-# Load solarized dircolors
-eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
+
