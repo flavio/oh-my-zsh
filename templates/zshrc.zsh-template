@@ -28,6 +28,8 @@ os_plugins=()
 if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH
   os_plugins=(osx brew macports mbp-keyboard)
+else
+  export TERM=xterm-256color
 fi
   
 all_platform_plugins=(git ruby rails jump ssh-agent)
@@ -54,7 +56,7 @@ export FLASH_FORCE_ALSA=1
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # start tmux forcing 256 color mode (the setting inside of .tmux.conf is ignored)
-alias tmux="tmux -2"
+alias tmux="TERM=screen-256color tmux"
 
 # set oracle home
 export TNS_ADMIN=/etc
