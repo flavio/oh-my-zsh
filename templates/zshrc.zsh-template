@@ -28,10 +28,13 @@ os_plugins=()
 if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH
   os_plugins=(osx brew macports mbp-keyboard)
-else
-  export TERM=xterm-256color
-fi
   
+  # solarized ls colors on osx
+  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+else
+  # Load solarized dircolors
+  eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
+fi
 all_platform_plugins=(git ruby rails jump ssh-agent)
 plugins=($all_platform_plugins $os_plugins)
 
@@ -40,6 +43,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export EDITOR=vim
 export LANGUAGE=en_US
+export TERM=xterm-256color
 
 # ssh without memory
 alias ssh_anon="ssh -o \"UserKnownHostsFile /dev/null\""
@@ -56,8 +60,6 @@ export FLASH_FORCE_ALSA=1
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # start tmux forcing 256 color mode (the setting inside of .tmux.conf is ignored)
-#alias tmux="TERM=screen-256color tmux"
-# for tmux: export 256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
 # set oracle home
