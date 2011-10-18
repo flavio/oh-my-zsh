@@ -56,7 +56,9 @@ export FLASH_FORCE_ALSA=1
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # start tmux forcing 256 color mode (the setting inside of .tmux.conf is ignored)
-alias tmux="TERM=screen-256color tmux"
+#alias tmux="TERM=screen-256color tmux"
+# for tmux: export 256color
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 # set oracle home
 export TNS_ADMIN=/etc
@@ -66,3 +68,7 @@ export TNS_ADMIN=/etc
 
 # Load solarized dircolors
 eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
+
+# fix home/end keys inside of gnome-terminal and xfce4/terminal
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
