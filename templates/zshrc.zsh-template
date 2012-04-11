@@ -28,7 +28,7 @@ os_plugins=()
 if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH
   os_plugins=(osx brew macports mbp-keyboard)
-  
+
   # solarized ls colors on osx
   export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 else
@@ -60,7 +60,7 @@ export FLASH_FORCE_ALSA=1
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # start tmux forcing 256 color mode (the setting inside of .tmux.conf is ignored)
-[ -n "$TMUX" ] && export TERM=screen-256color
+[ -n "$TMUX" ] && export TERM=screen-256color-bce
 
 # set oracle home
 export TNS_ADMIN=/etc
