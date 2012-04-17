@@ -40,7 +40,7 @@ else
   # Load solarized dircolors
   eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
 fi
-all_platform_plugins=(vi-mode history-substring-search bundler gem git rvm ruby rails3 jump ssh-agent)
+all_platform_plugins=(vi-mode bundler gem git rvm ruby rails3 jump ssh-agent)
 plugins=($all_platform_plugins $os_plugins)
 
 source $ZSH/oh-my-zsh.sh
