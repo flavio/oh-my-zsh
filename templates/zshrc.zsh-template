@@ -40,7 +40,7 @@ else
   # Load solarized dircolors
   eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
 fi
-all_platform_plugins=(vi-mode bundler gem git rvm ruby rails3 jump ssh-agent)
+all_platform_plugins=(bundler gem git rvm ruby rails3 jump ssh-agent)
 plugins=($all_platform_plugins $os_plugins)
 
 source $ZSH/oh-my-zsh.sh
@@ -79,3 +79,7 @@ eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
 # fix home/end keys inside of gnome-terminal and xfce4/terminal
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
+
+# force jruby to use 1.9 mode
+export JRUBY_OPTS="--1.9"
+
