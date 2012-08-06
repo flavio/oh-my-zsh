@@ -38,7 +38,7 @@ if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
   export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 else
   # Load solarized dircolors
-  eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
+  eval `dircolors $ZSH/dircolors-solarized/dircolors.256dark`
 fi
 all_platform_plugins=(gem git rvm ruby rails3 jump ssh-agent)
 plugins=($all_platform_plugins $os_plugins)
