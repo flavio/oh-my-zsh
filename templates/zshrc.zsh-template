@@ -80,7 +80,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if which tmux 2>&1 >/dev/null; then
   #if not inside a tmux session, and if no session is started, start a new session
-  test -z "$TMUX" && [[ $HOSTNAME != 'roesti.site' ]] && (tmux attach || tmux new-session)
+  test -z "$TMUX" && [[ $HOSTNAME != 'rush.site' ]] && [[ $HOSTNAME != 'roesti.site' ]] && (tmux attach || tmux new-session)
 fi
 
 # This loads openstack env variables.
