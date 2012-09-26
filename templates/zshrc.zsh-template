@@ -40,7 +40,13 @@ else
   # Load solarized dircolors
   eval `dircolors $ZSH/dircolors-solarized/dircolors.256dark`
 fi
-all_platform_plugins=(gem git rvm ruby rails3 jump ssh-agent)
+
+all_platform_plugins=(gem git rvm ruby rails3 jump)
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  all_platform_plugins=($all_platform_plugins ssh-agent)
+fi
+
 plugins=($all_platform_plugins $os_plugins)
 
 source $ZSH/oh-my-zsh.sh
@@ -95,3 +101,6 @@ bindkey "^[OF" end-of-line
 
 # force jruby to use 1.9 mode
 export JRUBY_OPTS="--1.9"
+
+# force rubinius to use 1.9 mode
+export RBXOPT='-X19'
