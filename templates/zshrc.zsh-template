@@ -66,6 +66,8 @@ alias sftp_anon="sftp -o \"UserKnownHostsFile /dev/null\""
 alias iosc="osc -A https://api.suse.de"
 alias mosc="osc -A https://api.pub.meego.com"
 
+alias json_pretty_print="python -mjson.tool"
+
 # needed to have flash audio working with SLED11
 export FLASH_FORCE_ALSA=1
 
