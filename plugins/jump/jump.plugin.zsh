@@ -21,7 +21,7 @@ _jump()
 {
   local user_input
   read -cA user_input
-  local cur prev 
+  local cur prev
   reply=()
 
   cur="${user_input[$#user_input]}"
@@ -31,7 +31,7 @@ _jump()
 
   if [[ ${prev} = "-d" || ${prev} = "--del" ]] ; then
     # complete the del command with a list of the available bookmarks
-    reply=( $(jump-bin --bc) )
+    reply=( $(jump-bin --complete) )
     return 0
   fi
 
@@ -39,12 +39,13 @@ _jump()
     reply=( --help -h --add -a --del -d --list -l )
     return 0
   else
-    reply=( $(jump-bin --bc ${cur}) )
+    reply=( $(jump-bin --complete ${cur}) )
     return 0
-  fi 
+  fi
 }
 
 function jump {
+  local args dest
   args=$*
   #echo "jump called with |$args|"
   if [[ $#args -lt 1 ]]; then
@@ -52,8 +53,10 @@ function jump {
   elif [[ ${args[0,1]} = "-" ]]; then
     jump-bin $*
   else
-    cd "$(jump-bin $*)"
+    dest="$(jump-bin $*)" && cd "$dest"
   fi
 }
 
 compctl -K _jump -S '' jump
+
+# vim: ft=zsh et sw=2 ts=2 sts=2
