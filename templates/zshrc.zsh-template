@@ -52,7 +52,7 @@ else
   eval `dircolors $ZSH/dircolors-solarized/dircolors.256dark`
 fi
 
-all_platform_plugins=(gem git rvm ruby rails3 jump)
+all_platform_plugins=(gem git golang rvm ruby rails3 jump)
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
   all_platform_plugins=($all_platform_plugins ssh-agent)
