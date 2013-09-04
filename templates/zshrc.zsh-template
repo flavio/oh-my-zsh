@@ -15,7 +15,7 @@ ZSH_THEME="jreese"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
@@ -40,17 +40,9 @@ ZSH_THEME="jreese"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-os_plugins=()
-if [[ `ruby -e 'puts "osx" if RUBY_PLATFORM=~/.*darwin.*/'` = "osx" ]]; then
-  export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-  os_plugins=(osx brew macports mbp-keyboard)
 
-  # solarized ls colors on osx
-  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-else
-  # Load solarized dircolors
-  eval `dircolors $ZSH/dircolors-solarized/dircolors.256dark`
-fi
+# Load solarized dircolors
+eval `dircolors $ZSH/dircolors-solarized/dircolors.256dark`
 
 all_platform_plugins=(gem git golang rvm ruby rails3 jump)
 
@@ -99,14 +91,11 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if which tmux 2>&1 >/dev/null; then
   #if not inside a tmux session, and if no session is started, start a new session
-  test -z "$TMUX" && [[ $HOSTNAME != 'rush.site' ]] && [[ $HOSTNAME != 'roesti.site' ]] && (tmux attach || tmux new-session)
+  test -z "$TMUX" && [[ $HOSTNAME != 'rush.in.da.house' ]] && [[ $HOSTNAME != 'roesti.in.da.house' ]] && (tmux attach || tmux new-session)
 fi
 
 # This loads openstack env variables.
 [[ -s "$HOME/.openstack/novarc" ]] && source "$HOME/.openstack/novarc"
-
-# Load solarized dircolors
-eval `dircolors $ZSH/dircolors-solarized/dircolors.ansi-light`
 
 # fix home/end keys inside of gnome-terminal and xfce4/terminal
 bindkey "^[OH" beginning-of-line
